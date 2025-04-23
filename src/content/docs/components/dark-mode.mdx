@@ -1,0 +1,182 @@
+---
+title: Dark mode
+description: A fully accessible dark mode toggle that respects user preferences and persists across page loads.
+---
+
+import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
+import { DarkMode } from 'jo-astro-components';
+import { Icon } from 'astro-icon/components';
+
+## Introduction
+
+The Dark mode component provides a toggle for switching between light and dark color schemes. It uses system preferences, persists user choices, and follows accessibility best practices.
+
+## When to use
+
+- Website theming
+- User interface customization
+- Reducing eye strain in low-light conditions
+- Respecting user system preferences
+- Battery saving on OLED displays
+
+## Quick example
+
+<div class="not-content">
+  <p>Click the toggle below to switch between light and dark mode:</p>
+  <div style="display: flex; gap: 1rem; align-items: center; margin-top: 1rem;">
+    <DarkMode>
+      <Icon name="ion:sunny" slot="light" />
+      <Icon name="ion:moon" slot="dark" />
+    </DarkMode>
+    <span>Try using keyboard navigation (Tab + Enter/Space) to toggle!</span>
+  </div>
+</div>
+
+<Aside type="caution" title="Example component">
+  The toggle here doesn't change the color scheme (just for itself) since Starlight has its own dark mode toggle and doesn't use the `darkmode` class.
+</Aside>
+
+## Usage
+
+Learn how to implement the DarkMode component in your project, from basic usage to advanced configurations.
+
+```astro
+---
+import { DarkMode } from 'jo-astro-components'
+---
+
+<!-- Default with system preference -->
+<DarkMode />
+
+<!-- With custom icons -->
+<DarkMode>
+  <Icon name="ion:bulb" slot="light" />
+  <Icon name="ion:bulb-outline" slot="dark" />
+</DarkMode>
+```
+
+<Aside type="tip" title="Initial mode">
+  Use the `initialMode` prop to set the default color scheme. Options are 'light', 'dark', or 'auto' (uses system preference).
+</Aside>
+
+<Aside title="Class .darkmode">
+  The component sets a class of `darkmode` on the `html` element when dark mode is active. You can use this class to apply styles to your website.
+</Aside>
+
+## Props
+
+Configure the DarkMode component using these available props to customize its behavior and appearance.
+
+<div class="props-wrapper">
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `initialMode` | `'light' \| 'dark' \| 'auto'` | `'auto'` | Sets the initial color scheme mode |
+| `label` | `string` | `'Toggle Dark Mode'` | Accessible label for the toggle button |
+| `class` | `string` | `''` | Additional CSS classes to apply |
+</div>
+
+## Accessibility
+
+Accessibility isn't an afterthought - it's built into the core of this component through semantic HTML elements and proper image handling. The DarkMode component is built with accessibility in mind:
+
+- Uses semantic button element
+- Proper ARIA attributes (`aria-pressed`, `aria-label`)
+- Maintains focus states
+- Persists across page loads using `localStorage`
+
+## Styling
+
+Make the DarkMode component your own with custom styling while maintaining its accessibility features.
+
+<Aside type="caution" title="Accessibility considerations">
+  When applying custom styles, ensure they don't compromise accessibility by maintaining sufficient color contrast and touch target sizes.
+</Aside>
+
+<Tabs>
+  <TabItem label="Custom CSS">
+    ```css
+    /* Option 1: Using :global() in your style block */
+    <style>
+      :global(.darkmode-toggle) {
+        font-size: 1.125rem;
+        color: light-dark(hsl(215 8% 45%), hsl(215 8% 65%));
+      }
+
+      :global(.darkmode-toggle:hover) {
+        color: light-dark(hsl(215 25% 27%), hsl(215 25% 89%));
+      }
+
+      /* Dark mode styles applied to html element */
+      :global(.darkmode) {
+        color-scheme: dark;
+        background: hsl(0 0% 10%);
+        color: hsl(0 0% 100%);
+      }
+    </style>
+
+    /* Option 2: Using is:global on the style tag */
+    <style is:global>
+      .darkmode-toggle {
+        font-size: 1.125rem;
+        color: light-dark(hsl(215 8% 45%), hsl(215 8% 65%));
+      }
+
+      .darkmode-toggle:hover {
+        color: light-dark(hsl(215 25% 27%), hsl(215 25% 89%));
+      }
+
+      /* Dark mode styles applied to html element */
+      .darkmode {
+        color-scheme: dark;
+        background: hsl(0 0% 10%);
+        color: hsl(0 0% 100%);
+      }
+    </style>
+    ```
+  </TabItem>
+  <TabItem label="Tailwind Classes">
+    ```astro
+    <DarkMode
+      class="text-lg text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
+    >
+      <Icon
+        name="ion:sunny"
+        slot="light"
+        class="w-6 h-6"
+      />
+      <Icon
+        name="ion:moon"
+        slot="dark"
+        class="w-6 h-6"
+      />
+    </DarkMode>
+    ```
+  </TabItem>
+</Tabs>
+
+<Aside type="note" title="Style scoping">
+  Astro components use scoped styles by default. To override component styles, you'll need to use either `:global()` selectors or the `is:global` directive on your style tag.
+</Aside>
+
+## Interactive examples
+
+See the DarkMode component in action with these practical examples demonstrating different variants and styling options.
+
+<Aside type="caution" title="Example component">
+  The toggle here doesn't change the color scheme (just for itself) since Starlight has its own dark mode toggle and doesn't use the `darkmode` class.
+</Aside>
+
+### Default style
+
+<div class="not-content">
+  <DarkMode />
+</div>
+
+### With custom icons
+
+<div class="not-content">
+  <DarkMode>
+    <Icon name="ion:bulb" slot="light" />
+    <Icon name="ion:bulb-outline" slot="dark" />
+  </DarkMode>
+</div>

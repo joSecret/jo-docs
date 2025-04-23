@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import icon from 'astro-icon'
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,6 +12,10 @@ export default defineConfig({
 			title: 'My Docs',
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
 			sidebar: [
+				{
+					label: 'Components',
+					autogenerate: { directory: 'components' },
+				},
 				{
 					label: 'Guides',
 					items: [
@@ -24,5 +29,6 @@ export default defineConfig({
 				},
 			],
 		}),
+		icon(),
 	],
 });

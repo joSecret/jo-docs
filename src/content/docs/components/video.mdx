@@ -1,0 +1,75 @@
+---
+title: Video
+description: A fully accessible video component that handles responsive video with customizable aspect ratios and loading strategies.
+---
+
+import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
+import { Video } from 'jo-astro-components';
+
+## Introduction
+
+The Video component provides a robust solution for embedding videos while ensuring accessibility and proper aspect ratio handling. It includes special handling for YouTube videos to prevent keyboard traps and maintain WCAG compliance.
+
+<Aside type="note" title="Video platform support">
+  While currently optimized for YouTube embeds, we plan to add support for Vimeo, Wistia, and self-hosted videos in future releases. Want to help expand platform support? Contributions are welcome! For additional video platform options, check out [Astro Embeds](https://astro-embed.netlify.app/) by Chris Swithinbank.
+</Aside>
+
+<Aside type="tip" title="Accessibility first">
+  Always ensure your videos include proper captions and audio descriptions. This component handles the technical accessibility aspects, but content accessibility is equally important!
+</Aside>
+
+## When to use
+
+The Video component is perfect for situations where you need embedded videos:
+
+- Product demos
+- Tutorial videos
+- Background videos
+- Video testimonials
+- Course content
+- Marketing materials
+- YouTube embeds
+
+## Usage
+
+Learn how to implement the Video component in your project.
+
+### Basic
+<Tabs>
+  <TabItem label="preview">
+    <Video
+      src="https://www.youtube.com/watch?v=j8K-ESJF814"
+      title="One year of Starlight: Astro's community-built documentation theme"
+      ratio="16:9"
+    />
+  </TabItem>
+
+  <TabItem label="Code">
+    ```astro
+      ---
+      import { Video } from 'jo-astro-components'
+      ---
+
+      <Video
+        src="https://www.youtube.com/watch?v=j8K-ESJF814"
+        title="One year of Starlight: Astro's community-built documentation theme"
+        ratio="16:9"
+      />
+    ```
+  </TabItem>
+</Tabs>
+<p style="margin-top: 0.5rem; font-size: 0.9rem;">This embedded video maintains proper aspect ratio and includes accessibility features like keyboard trap prevention and proper ARIA attributes.</p>
+
+### YouTube specific
+
+<Aside type="note" title="YouTube keyboard handling">
+  When embedding YouTube videos, the component automatically adds `&disablekb=1` to prevent YouTube's default keyboard shortcuts from interfering with your website's accessibility. If you've already included this parameter, the component will detect it and avoid duplication.
+</Aside>
+
+```astro
+<Video
+  src="https://www.youtube.com/watch?v=tk1RWcasgxs&disablekb=1"
+  title="Astro Together keynote in 6 minutes"
+  ratio="21:9"
+  loading="eager"
+/>
