@@ -1,6 +1,7 @@
 ---
 title: Accordion
 description: A fully accessible accordion component for expanding and collapsing content sections using native HTML elements.
+version: 1.0.0
 ---
 
 import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
@@ -22,17 +23,30 @@ Accordions are perfect for progressive disclosure of content, allowing users to 
 ## Quick example
 
 <div class="not-content">
-  <Accordion>
-    <AccordionItem title="Try me - click to expand" open>
-      <p>This is a simple example of the accordion component. Try clicking on the other items below!</p>
-    </AccordionItem>
-    <AccordionItem title="How does it work?">
-      <p>The accordion uses native HTML elements for accessibility and adds enhanced styling and behavior.</p>
-    </AccordionItem>
-    <AccordionItem title="What about keyboard users?">
-      <p>Try using the Tab key to navigate and Enter/Space to toggle items open and closed.</p>
-    </AccordionItem>
-  </Accordion>
+  ``` html live
+  <div class="btn btn-primary">Button primary</div>
+  <div class="btn btn-secondary">Button secondary</div>
+  ```
+</div>
+
+<div class="not-content">
+  ```astro live
+    ---
+    import { Accordion, AccordionItem } from 'jo-astro-components';
+    ---
+
+    <Accordion>
+      <AccordionItem title="Try me - click to expand" open>
+        <p>This is a simple example of the accordion component. Try clicking on the other items below!</p>
+      </AccordionItem>
+      <AccordionItem title="How does it work?">
+        <p>The accordion uses native HTML elements for accessibility and adds enhanced styling and behavior.</p>
+      </AccordionItem>
+      <AccordionItem title="What about keyboard users?">
+        <p>Try using the Tab key to navigate and Enter/Space to toggle items open and closed.</p>
+      </AccordionItem>
+    </Accordion>
+  ```
 </div>
 
 ## Usage

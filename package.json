@@ -11,11 +11,12 @@
   },
   "dependencies": {
     "@astrojs/starlight": "^0.34.0",
-    "astro": "^5.6.1",
-    "sharp": "^0.32.5",
     "@iconify-json/ion": "^1.2.2",
     "@iconify-json/mdi": "^1.2.3",
+    "astro": "^5.6.1",
     "astro-icon": "^1.1.5",
-    "jo-astro-components": "git+https://github.com/joSecret/jo-components-astro.git"
+    "astro-live-code": "^0.0.6",
+    "jo-astro-components": "git+https://github.com/joSecret/jo-components-astro.git",
+    "sharp": "^0.32.5"
   }
 }
