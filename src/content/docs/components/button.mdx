@@ -1,19 +1,105 @@
 ---
 title: Button
-description: Button style description.
+category: Components
+description: The classic button, in different colors, sizes, and states.
+thumbnails: ""
 ---
-
 import { Accordion, AccordionItem } from 'jo-astro-components';
+
+#### Class name | Type | Description
+
+Variants: outline | ghost | plain
+
+Size: sm | lg
+
+icon: left | right | only | none
+
+Color: default | primary | secondary | success | danger | warning | info | dark | light | link
+
+Loading:
+
+Radius: none | sm | md | lg | full
+
+Prent div to cheild?
+
+The button is an essential element of any design. It's meant to look and behave as an interactive element of your page.
 
 ## Introduction
 
 The Accordion component provides an expandable/collapsible section of content that follows the WAI-ARIA best practices. It uses the native HTML `<details>` and `<summary>` elements for built-in accessibility and functionality.
 
 ## Quick example
+<div class="not-content">
+  ``` html live
+  <button>Button</button>
+  <button class="btn btn-primary">Button</button>
+  <a href='#' class="btn btn-outline btn-primary">Button</a>
+  ```
+</div>
+
+The button class can be used on:
+
+<ul>
+<li>`<a>` anchor links</li>
+<li>`<button>` form buttons</li>
+<li>`<input type="submit">` submit inputs</li>
+<li>`<input type="reset">` reset inputs</li>
+</ul>
 
 <div class="not-content">
   ``` html live
-  <div class="btn btn-primary">Button primary</div>
-  <div class="btn btn-secondary">Button secondary</div>
+<a class="btn">Anchor</a>
+<button>Button</button>
+<button class="btn">Button</button>
+<input class="btn" type="submit" value="Submit input" />
+<input class="btn" type="reset" value="Reset input" />
+  ```
+</div>
+
+## Button style
+<div class="not-content">
+  ``` html live
+  <button class="btn btn-primary">Button primary</button>
+  <button class="btn btn-secondary">Button secondary</button>
+  <button class="btn btn-success">Button success</button>
+  <button class="btn btn-danger">Button danger</button>
+  <button class="btn btn-warning">Button warning</button>
+  <button class="btn btn-info">Button info</button>
+  <button class="btn btn-dark">Button dark</button>
+  <button class="btn btn-light">Button light</button>
+  <button class="btn btn-link">Button link</button>
+  ```
+</div>
+
+## Button style
+<div class="not-content">
+  ``` html live
+  <button class="btn btn-outline btn-primary">Button primary</button>
+  <button class="btn btn-outline btn-secondary">Button secondary</button>
+  <button class="btn btn-outline btn-success">Button success</button>
+  <button class="btn btn-outline btn-danger">Button danger</button>
+  <button class="btn btn-outline btn-warning">Button warning</button>
+  <button class="btn btn-outline btn-info">Button info</button>
+  <button class="btn btn-outline btn-dark">Button dark</button>
+  <button class="btn btn-outline btn-light">Button light</button>
+  <button class="btn btn-outline btn-link">Button link</button>
+  ```
+</div>
+
+## Button size
+<div class="not-content">
+  ``` html live
+  <button class="btn btn-sm">Button small</button>
+  <button class="btn">Button</button>
+  <button class="btn btn-lg">Button large</button>
+  ```
+</div>
+
+## Button style
+<div class="not-content">
+  ``` html live
+  <button class="btn btn-primary btn-rounded">Button rounded</button>
+  <button class="btn">Button</button>
+  <button class="btn btn-lg">Button large</button>
   ```
 </div>

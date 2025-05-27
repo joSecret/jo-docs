@@ -9,9 +9,13 @@ export default defineConfig({
 	site: 'https://josecret.github.io/',
 	base: 'jo-docs',
 	integrations: [
-		liveCode(),
 		starlight({
 			title: 'My Docs',
+			customCss: [
+        './src/styles/vars.css',
+        './src/styles/custom.css',
+        './src/styles/button.css',
+      ],
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
 			sidebar: [
 				{
@@ -40,5 +44,6 @@ export default defineConfig({
 			],
 		}),
 		icon(),
+		liveCode(),
 	],
 });
